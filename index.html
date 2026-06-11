@@ -8,6 +8,13 @@
 
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- 🚀 PWA MANIFEST ADDED -->
+<link rel="manifest" href="manifest.json">
+
+<!-- 🎨 Theme color (mobile UI color) -->
+<meta name="theme-color" content="#0b0f17">
+
 </head>
 
 <body>
@@ -103,5 +110,18 @@ Made with ❤️ • ExamPanic AI SaaS EdTech
 
 <script src="app.js"></script>
 
+<!-- 🚀 PWA SERVICE WORKER -->
+<script>
+if ('serviceWorker' in navigator) {
+window.addEventListener('load', () => {
+navigator.serviceWorker.register('./service-worker.js')
+.then(() => console.log("Service Worker Registered"))
+.catch(err => console.log("SW Error:", err));
+});
+}
+</script>
+
 </body>
 </html>
+
+
