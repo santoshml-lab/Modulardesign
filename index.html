@@ -4,216 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ExamPanic AI</title>
+<title>ExamPanic AI Dashboard</title>
 
+<link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-/* RESET */
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Inter',sans-serif;
-}
-
-body{
-background:#0b0f17;
-color:#fff;
-overflow-x:hidden;
-}
-
-/* SOFT BACKGROUND GLOW */
-.glow{
-position:fixed;
-width:500px;
-height:500px;
-background:#4da3ff25;
-filter:blur(140px);
-top:-120px;
-left:-120px;
-z-index:-1;
-}
-
-.glow2{
-position:fixed;
-width:500px;
-height:500px;
-background:#9333ea25;
-filter:blur(140px);
-bottom:-150px;
-right:-150px;
-z-index:-1;
-}
-
-/* TOPBAR */
-.topbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 8%;
-background:rgba(255,255,255,0.04);
-backdrop-filter:blur(30px);
-border-bottom:1px solid rgba(255,255,255,0.06);
-}
-
-.logo{
-font-size:20px;
-font-weight:600;
-letter-spacing:0.5px;
-}
-
-.logo span{
-color:#4da3ff;
-}
-
-.tag{
-font-size:12px;
-padding:6px 12px;
-border-radius:999px;
-background:rgba(255,255,255,0.06);
-color:#cbd5e1;
-}
-
-/* HERO */
-.hero{
-padding:70px 8% 40px;
-text-align:left;
-}
-
-.hero h1{
-font-size:40px;
-font-weight:600;
-line-height:1.3;
-}
-
-.hero p{
-margin-top:12px;
-color:#94a3b8;
-font-size:14px;
-}
-
-.btn{
-margin-top:22px;
-padding:12px 18px;
-border:none;
-border-radius:12px;
-background:#4da3ff;
-color:#000;
-font-weight:600;
-cursor:pointer;
-transition:0.3s;
-}
-
-.btn:hover{
-transform:scale(1.05);
-}
-
-/* STATS */
-.stats{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:14px;
-padding:20px 8%;
-}
-
-.stat{
-background:rgba(255,255,255,0.04);
-border:1px solid rgba(255,255,255,0.06);
-padding:18px;
-border-radius:16px;
-text-align:center;
-transition:0.3s;
-}
-
-.stat:hover{
-transform:translateY(-6px);
-background:rgba(255,255,255,0.06);
-}
-
-.stat h2{
-color:#4da3ff;
-font-size:18px;
-}
-
-/* CONTINUE CARD */
-.continue{
-margin:10px 8%;
-padding:22px;
-background:rgba(255,255,255,0.04);
-border:1px solid rgba(255,255,255,0.06);
-border-radius:18px;
-}
-
-.continue p{
-margin-top:6px;
-color:#94a3b8;
-}
-
-.continue button{
-margin-top:12px;
-padding:10px 16px;
-border:none;
-border-radius:10px;
-background:#4da3ff;
-color:#000;
-font-weight:600;
-cursor:pointer;
-}
-
-/* FEATURES */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:16px;
-padding:30px 8%;
-}
-
-.card{
-background:rgba(255,255,255,0.04);
-border:1px solid rgba(255,255,255,0.06);
-border-radius:18px;
-padding:20px;
-transition:0.3s;
-cursor:pointer;
-}
-
-.card:hover{
-transform:translateY(-8px);
-background:rgba(255,255,255,0.06);
-}
-
-.card h3{
-font-size:15px;
-margin-bottom:6px;
-}
-
-.card p{
-font-size:13px;
-color:#94a3b8;
-line-height:1.4;
-}
-
-.badge{
-display:inline-block;
-margin-top:10px;
-padding:5px 10px;
-border-radius:999px;
-background:rgba(255,255,255,0.06);
-font-size:11px;
-color:#cbd5e1;
-}
-
-/* FOOTER */
-footer{
-text-align:center;
-padding:25px;
-font-size:12px;
-color:#64748b;
-}
-
-</style>
 </head>
 
 <body>
@@ -223,12 +17,12 @@ color:#64748b;
 
 <div class="topbar">
 <div class="logo">🚀 Exam<span>Panic</span></div>
-<div class="tag">Apple SaaS Learning</div>
+<div class="tag">Apple SaaS AI System</div>
 </div>
 
 <div class="hero">
-<h1>Learn Smarter with AI 📚<br>Not Harder.</h1>
-<p>AI-powered learning system for Class 1–10 students</p>
+<h1>Learn Smarter with AI 📚</h1>
+<p>Class 1–10 Complete Learning System</p>
 <button class="btn">Start Learning</button>
 </div>
 
@@ -259,35 +53,55 @@ color:#64748b;
 
 <div class="grid">
 
-<div class="card">
+<div class="card" onclick="openLink('https://learnlession.santoshkrsbg36.workers.dev/')">
 <h3>📘 Learn AI Teacher</h3>
-<p>Step-by-step concept explanation</p>
+<p>Concept explanation like real teacher</p>
 <div class="badge">Open</div>
 </div>
 
-<div class="card">
+<div class="card" onclick="openLink('https://studentnotes.santoshkrsbg36.workers.dev/')">
+<h3>📝 Notes Generator</h3>
+<p>Instant ICSE revision notes</p>
+<div class="badge">Generate</div>
+</div>
+
+<div class="card" onclick="openLink('https://chatstudent.santoshkrsbg36.workers.dev/')">
+<h3>💬 AI Chat Tutor</h3>
+<p>Ask doubts anytime</p>
+<div class="badge">Chat</div>
+</div>
+
+<div class="card" onclick="openLink('https://shrill-grass-28d6.santoshkrsbg36.workers.dev/')">
 <h3>🧠 MCQ Engine</h3>
-<p>Practice & test yourself</p>
-<div class="badge">Start</div>
+<p>Auto test system</p>
+<div class="badge">Test</div>
 </div>
 
-<div class="card">
-<h3>💡 AI Hints</h3>
-<p>Guided step-by-step help</p>
-<div class="badge">Smart Help</div>
+<div class="card" onclick="openLink('https://studentscoreprediction.santoshkrsbg36.workers.dev/')">
+<h3>🎯 ML Prediction</h3>
+<p>Predict exam score using AI</p>
+<div class="badge">Predict</div>
 </div>
 
-<div class="card">
-<h3>📊 Analytics</h3>
-<p>Track your learning progress</p>
-<div class="badge">View</div>
+<div class="card" onclick="openLink('https://stydentnumericalproblem.santoshkrsbg36.workers.dev/')">
+<h3>📊 Numerical Solver</h3>
+<p>Step-by-step solution AI</p>
+<div class="badge">Solve</div>
+</div>
+
+<div class="card" onclick="openLink('https://spontaneous-froyo-5ff131.netlify.app/')">
+<h3>🧠 Weakness Analyzer</h3>
+<p>Find weak topics + improve plan</p>
+<div class="badge">Analyze</div>
 </div>
 
 </div>
 
 <footer>
-Made with ❤️ • ExamPanic AI SaaS EdTech System
+Made with ❤️ • ExamPanic AI SaaS EdTech
 </footer>
+
+<script src="app.js"></script>
 
 </body>
 </html>
