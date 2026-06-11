@@ -118,28 +118,38 @@ Made with ❤️ • ExamPanic AI SaaS EdTech
 <script>
 let deferredPrompt;
 
+// 🔥 correct time pe capture
 window.addEventListener("beforeinstallprompt", (e) => {
 e.preventDefault();
 deferredPrompt = e;
+console.log("PWA install ready");
 });
 
-document.getElementById("installBtn").addEventListener("click", async () => {
-if (deferredPrompt) {
-deferredPrompt.prompt();
-const { outcome } = await deferredPrompt.userChoice;
-deferredPrompt = null;
-} else {
-alert("Open this site in Chrome to install app 📱");
+// 📲 button click install
+document.addEventListener("DOMContentLoaded", () => {
+const btn = document.getElementById("installBtn");
+
+btn.addEventListener("click", async () => {
+if (!deferredPrompt) {
+alert("Open in Chrome browser to install 📱");
+return;
 }
+
+deferredPrompt.prompt();
+
+const choice = await deferredPrompt.userChoice;
+deferredPrompt = null;
+});
 });
 
-// Service Worker
-if ('serviceWorker' in navigator) {
-window.addEventListener('load', () => {
-navigator.serviceWorker.register('./service-worker.js');
+// 🔧 service worker (safe)
+if ("serviceWorker" in navigator) {
+window.addEventListener("load", () => {
+navigator.serviceWorker.register("./service-worker.js");
 });
 }
 </script>
+
 
 </body>
 </html>
