@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ExamPanic AI Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="topbar">
+    <div class="logo">🚀 Exam<span>Panic</span></div>
+    <div class="badge">AI Learning Companion</div>
+</div>
+
+<div class="hero">
+    <h1>Good Evening 👋</h1>
+    <p>Learn • Practice • Improve with AI</p>
+
+    <button onclick="startLearning()" class="cta-btn">
+        🚀 Start Learning
+    </button>
+</div>
+
+<!-- Progress -->
+<div class="progress">
+
+    <div class="stat">
+        <h2 id="streak">🔥 5 Days</h2>
+        <small>Study Streak</small>
+    </div>
+
+    <div class="stat">
+        <h2 id="mcq">📝 86</h2>
+        <small>MCQs Solved</small>
+    </div>
+
+    <div class="stat">
+        <h2 id="accuracy">🎯 82%</h2>
+        <small>Accuracy</small>
+    </div>
+
+</div>
+
+<!-- Continue -->
+<div class="continue">
+
+    <h2>📚 Continue Learning</h2>
+    <p id="lastTopic">Last Topic: Photosynthesis</p>
+
+    <button onclick="resume()" class="resume-btn">
+        Resume →
+    </button>
+
+</div>
+
+<!-- Features -->
+<div class="section">
+<h2 class="section-title">🚀 Features</h2>
+
+<div class="grid">
+
+<div class="card" onclick="openLink('https://iitlearning.vercel.app/')">
+<h3>📘 Learn AI</h3>
+<p>Concept explanation with AI teacher</p>
+<div class="card-tag">Open</div>
+</div>
+
+<div class="card" onclick="openLink('https://iitpage.vercel.app/')">
+<h3>🧠 MCQ Engine</h3>
+<p>Practice and test yourself</p>
+<div class="card-tag">Start Test</div>
+</div>
+
+<div class="card">
+<h3>💡 Hints System</h3>
+<p>Step-by-step guided help</p>
+<div class="card-tag">AI Help</div>
+</div>
+
+<div class="card">
+<h3>📊 Analytics</h3>
+<p>Track your progress</p>
+<div class="card-tag">View</div>
+</div>
+
+</div>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
