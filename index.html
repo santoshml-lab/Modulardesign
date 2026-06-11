@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,10 +10,8 @@
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- 🚀 PWA MANIFEST ADDED -->
+<!-- 🚀 PWA MANIFEST -->
 <link rel="manifest" href="manifest.json">
-
-<!-- 🎨 Theme color (mobile UI color) -->
 <meta name="theme-color" content="#0b0f17">
 
 </head>
@@ -25,6 +24,11 @@
 <div class="topbar">
 <div class="logo">🚀 Exam<span>Panic</span></div>
 <div class="tag">Apple SaaS AI System</div>
+</div>
+
+<!-- 🚀 INSTALL BUTTON ADDED -->
+<div style="text-align:center; margin-top:20px;">
+<button id="installBtn" class="btn">📲 Install App</button>
 </div>
 
 <div class="hero">
@@ -110,18 +114,33 @@ Made with ❤️ • ExamPanic AI SaaS EdTech
 
 <script src="app.js"></script>
 
-<!-- 🚀 PWA SERVICE WORKER -->
+<!-- 🚀 PWA + INSTALL LOGIC -->
 <script>
+let deferredPrompt;
+
+window.addEventListener("beforeinstallprompt", (e) => {
+e.preventDefault();
+deferredPrompt = e;
+});
+
+document.getElementById("installBtn").addEventListener("click", async () => {
+if (deferredPrompt) {
+deferredPrompt.prompt();
+const { outcome } = await deferredPrompt.userChoice;
+deferredPrompt = null;
+} else {
+alert("Open this site in Chrome to install app 📱");
+}
+});
+
+// Service Worker
 if ('serviceWorker' in navigator) {
 window.addEventListener('load', () => {
-navigator.serviceWorker.register('./service-worker.js')
-.then(() => console.log("Service Worker Registered"))
-.catch(err => console.log("SW Error:", err));
+navigator.serviceWorker.register('./service-worker.js');
 });
 }
 </script>
 
 </body>
 </html>
-
 
