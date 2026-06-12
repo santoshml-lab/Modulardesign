@@ -1,4 +1,4 @@
-const CACHE_NAME = "exampanic-cache-v1";
+const CACHE_NAME = "IIT Learning Hub-cache-v1";
 
 const urlsToCache = [
   "./",
