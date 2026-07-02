@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PDF AI | Exampanic</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+📄 PDF AI
+</div>
+
+<nav class="nav">
+<a href="index.html">Home</a>
+<a href="dashboard.html">Dashboard</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>📄 AI PDF Learning</h1>
+
+<p>
+Upload any PDF and let AI generate:
+Summary, Notes, MCQs and Flashcards.
+</p>
+
+</section>
+
+<section class="ai-teacher">
+
+<div class="input-box">
+
+<h2>Upload PDF</h2>
+
+<input
+type="file"
+id="pdfFile"
+accept=".pdf">
+
+<br><br>
+
+<button class="btn primary"
+onclick="uploadPDF()">
+📄 Upload PDF
+</button>
+
+</div>
+
+<div id="loading"
+class="loading-box"
+style="display:none;">
+
+🤖 Reading PDF...
+
+</div>
+
+<div
+id="pdfOutput"
+class="lesson-output">
+
+<h3>Your AI Result will appear here.</h3>
+
+</div>
+
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+<script src="pdf.js"></script>
+
+</body>
+</html>
