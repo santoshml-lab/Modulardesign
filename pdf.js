@@ -1,6 +1,9 @@
 pdfjsLib.GlobalWorkerOptions.workerSrc =
 "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
 
+// 👇 Uploaded PDF ka text yahan store hoga
+let pdfText = "";
+
 async function uploadPDF() {
 
     const file =
@@ -43,6 +46,9 @@ async function uploadPDF() {
         text += "\n\n";
     }
 
+    // 👇 PDF text save karo
+    pdfText = text;
+
     loading.style.display = "none";
 
     output.innerHTML =
@@ -53,3 +59,59 @@ async function uploadPDF() {
 }
 
 window.uploadPDF = uploadPDF;
+
+
+// =====================
+// ASK PDF AI
+// =====================
+
+async function askPDF() {
+
+    if (!pdfText) {
+        alert("Please upload a PDF first.");
+        return;
+    }
+
+    const question =
+        document.getElementById("pdfQuestion").value;
+
+    if (!question) {
+        alert("Enter your question.");
+        return;
+    }
+
+    const output =
+        document.getElementById("pdfOutput");
+
+    output.innerHTML = "🤖 Thinking...";
+
+    try {
+
+        const response = await fetch("YOUR_BACKEND_URL/pdf-chat", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                text: pdfText,
+                question: question
+            })
+
+        });
+
+        const data = await response.json();
+
+        output.innerHTML = marked.parse(data.reply);
+
+    } catch (err) {
+
+        output.innerHTML = "❌ Error: " + err.message;
+
+    }
+
+}
+
+window.askPDF = askPDF;
