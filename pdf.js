@@ -87,7 +87,7 @@ async function askPDF() {
 
     try {
 
-        const response = await fetch("https://student-learning-system-r6bi.onrender.com//pdf-chat", {
+        const response = await fetch("https://student-learning-system-r6bi.onrender.com/pdf-chat", {
 
             method: "POST",
 
