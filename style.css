@@ -551,3 +551,36 @@ footer{
     border-radius:12px;
     overflow:auto;
 }
+
+.ai-teacher{
+    width:100%;
+    padding:30px 20px;
+}
+
+.input-box,
+.lesson-output,
+.loading-box{
+    width:100%;
+    max-width:1000px;
+    margin:30px auto;
+}
+
+.input-box input{
+    display:block;
+    width:100%;
+    min-height:55px;
+    padding:16px;
+    font-size:18px;
+    border-radius:14px;
+    border:1px solid #4da3ff;
+    background:#0f172a;
+    color:white;
+}
+
+.input-box button{
+    margin-top:15px;
+}
+
+#pdfQuestion{
+    width:100%;
+}
