@@ -55,7 +55,44 @@ accept=".pdf">
 onclick="uploadPDF()">
 📄 Upload PDF
 </button>
+<div class="action-grid">
 
+<div class="action-card" onclick="generateSummary()">
+📄
+<h3>Summary</h3>
+<p>Quick Summary</p>
+</div>
+
+<div class="action-card" onclick="generateNotes()">
+📝
+<h3>Notes</h3>
+<p>Detailed Notes</p>
+</div>
+
+<div class="action-card" onclick="generateMCQs()">
+❓
+<h3>MCQs</h3>
+<p>Practice Questions</p>
+</div>
+
+<div class="action-card" onclick="generateFlashcards()">
+🧠
+<h3>Flashcards</h3>
+<p>Memory Cards</p>
+</div>
+
+<div class="action-card" onclick="generateQuiz()">
+🎯
+<h3>Quiz</h3>
+<p>Test Yourself</p>
+</div>
+
+<div class="action-card" onclick="askPDF()">
+💬
+<h3>Ask AI</h3>
+<p>Ask anything from PDF</p>
+</div>
+ 
 </div>
 
 <div id="loading"
@@ -71,6 +108,22 @@ id="pdfOutput"
 class="lesson-output">
 
 <h3>Your AI Result will appear here.</h3>
+ <div class="input-box">
+
+<h2>💬 Ask Anything from PDF</h2>
+
+<input
+type="text"
+id="pdfQuestion"
+placeholder="Ask any question from uploaded PDF">
+
+<br><br>
+
+<button class="btn primary" onclick="askPDF()">
+Ask AI
+</button>
+
+ </div> 
 
 </div>
 
