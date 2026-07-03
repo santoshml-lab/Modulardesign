@@ -529,3 +529,25 @@ footer{
     background:#111827;
     border-radius:16px;
 }
+.input-box{
+    width:100%;
+    max-width:900px;
+    margin:20px auto;
+}
+
+.input-box input{
+    width:100%;
+    padding:15px;
+    font-size:16px;
+    border-radius:12px;
+    box-sizing:border-box;
+}
+
+.lesson-output{
+    width:100%;
+    max-width:900px;
+    margin:20px auto;
+    padding:20px;
+    border-radius:12px;
+    overflow:auto;
+}
