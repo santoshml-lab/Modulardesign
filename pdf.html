@@ -55,6 +55,7 @@ accept=".pdf">
 onclick="uploadPDF()">
 📄 Upload PDF
 </button>
+
 <div class="action-grid">
 
 <div class="action-card" onclick="generateSummary()">
@@ -92,7 +93,9 @@ onclick="uploadPDF()">
 <h3>Ask AI</h3>
 <p>Ask anything from PDF</p>
 </div>
- 
+
+</div>
+
 </div>
 
 <div id="loading"
@@ -108,7 +111,12 @@ id="pdfOutput"
 class="lesson-output">
 
 <h3>Your AI Result will appear here.</h3>
- <div class="input-box">
+
+</div>
+
+<!-- 👇 Ask AI Box (pdfOutput ke bahar) -->
+
+<div class="input-box">
 
 <h2>💬 Ask Anything from PDF</h2>
 
@@ -120,10 +128,8 @@ placeholder="Ask any question from uploaded PDF">
 <br><br>
 
 <button class="btn primary" onclick="askPDF()">
-Ask AI
+🤖 Ask AI
 </button>
-
- </div> 
 
 </div>
 
