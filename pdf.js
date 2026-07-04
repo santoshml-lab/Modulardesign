@@ -115,3 +115,70 @@ async function askPDF() {
 }
 
 window.askPDF = askPDF;
+
+async function generateMCQs() {
+
+    if (!pdfText) {
+        alert("Please upload a PDF first.");
+        return;
+    }
+
+    const output = document.getElementById("pdfOutput");
+
+    output.innerHTML = "🤖 Generating MCQs...";
+
+    try {
+
+        const response = await fetch(
+            "https://student-learning-system-r6bi.onrender.com/pdf-mcq",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    text: pdfText
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if (data.status !== "success") {
+            output.innerHTML = "❌ Failed to generate MCQs.";
+            return;
+        }
+
+        let html = "<h2>❓ AI MCQs</h2>";
+
+        data.questions.forEach((q, index) => {
+
+            html += `
+            <div class="action-card">
+                <h3>Q${index + 1}. ${q.question}</h3>
+
+                <p>A. ${q.options[0]}</p>
+                <p>B. ${q.options[1]}</p>
+                <p>C. ${q.options[2]}</p>
+                <p>D. ${q.options[3]}</p>
+
+                <br>
+                <b>✅ Answer:</b> ${q.answer}
+                <br><br>
+                <i>${q.explanation}</i>
+            </div><br>
+            `;
+
+        });
+
+        output.innerHTML = html;
+
+    } catch (err) {
+
+        output.innerHTML = "❌ Error: " + err.message;
+
+    }
+
+}
+
+window.generateMCQs = generateMCQs;
