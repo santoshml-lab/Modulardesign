@@ -117,6 +117,7 @@ async function askPDF() {
 window.askPDF = askPDF;
 
 async function generateMCQs() {
+console.log("PDF Length:", pdfText.length);
 
     if (!pdfText) {
         alert("Please upload a PDF first.");
