@@ -117,7 +117,8 @@ async function askPDF() {
 window.askPDF = askPDF;
 
 async function generateMCQs() {
-console.log("PDF Length:", pdfText.length);
+
+    console.log("PDF Length:", pdfText.length);
 
     if (!pdfText) {
         alert("Please upload a PDF first.");
@@ -125,7 +126,6 @@ console.log("PDF Length:", pdfText.length);
     }
 
     const output = document.getElementById("pdfOutput");
-
     output.innerHTML = "🤖 Generating MCQs...";
 
     try {
@@ -138,15 +138,33 @@ console.log("PDF Length:", pdfText.length);
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    text: pdfText
+                    text: pdfText.substring(0, 12000) // Test ke liye limit
                 })
             }
         );
 
+        console.log("HTTP Status:", response.status);
+
         const data = await response.json();
 
+        console.log("API Response:", data);
+        alert(JSON.stringify(data));
+
+        if (!response.ok) {
+            output.innerHTML = "❌ HTTP Error: " + response.status;
+            return;
+        }
+
         if (data.status !== "success") {
-            output.innerHTML = "❌ Failed to generate MCQs.";
+            output.innerHTML =
+                "<h3>❌ Backend Error</h3><pre>" +
+                JSON.stringify(data, null, 2) +
+                "</pre>";
+            return;
+        }
+
+        if (!Array.isArray(data.questions)) {
+            output.innerHTML = "❌ Invalid questions data.";
             return;
         }
 
@@ -176,10 +194,18 @@ console.log("PDF Length:", pdfText.length);
 
     } catch (err) {
 
-        output.innerHTML = "❌ Error: " + err.message;
+        console.error(err);
+
+        output.innerHTML =
+            "<h3>❌ JavaScript Error</h3><pre>" +
+            err.message +
+            "</pre>";
 
     }
 
 }
 
 window.generateMCQs = generateMCQs;
+
+
+
