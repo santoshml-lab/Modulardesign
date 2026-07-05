@@ -190,7 +190,14 @@ async function generateMCQs() {
 
         });
 
-        output.innerHTML = html;
+html += `
+<br><br>
+<button class="btn primary" onclick="startQuiz()">
+▶️ Start Quiz
+</button>
+`;
+
+output.innerHTML = html;
 
     } catch (err) {
 
