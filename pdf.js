@@ -315,33 +315,38 @@ function startQuiz() {
 
 function showQuestion() {
 
-const selected = userAnswers[currentQuestion];
+    const q = quizQuestions[currentQuestion];
+    const selected = userAnswers[currentQuestion];
+    const output = document.getElementById("pdfOutput");
 
-output.innerHTML = `
-<h2>Question ${currentQuestion + 1} / ${quizQuestions.length}</h2>
+       output.innerHTML = `
+        <h2>Question ${currentQuestion + 1} / ${quizQuestions.length}</h2>
 
-<h3>${q.question}</h3>
+        <h3>${q.question}</h3>
 
-<button class="${selected === 'A' ? 'selected-option' : ''}" onclick="selectAnswer('A')">
-A. ${q.options[0]}
-</button><br><br>
+        <button class="${selected === 'A' ? 'selected-option' : ''}" onclick="selectAnswer('A')">
+            A. ${q.options[0]}
+        </button><br><br>
 
-<button class="${selected === 'B' ? 'selected-option' : ''}" onclick="selectAnswer('B')">
-B. ${q.options[1]}
-</button><br><br>
+        <button class="${selected === 'B' ? 'selected-option' : ''}" onclick="selectAnswer('B')">
+            B. ${q.options[1]}
+        </button><br><br>
 
-<button class="${selected === 'C' ? 'selected-option' : ''}" onclick="selectAnswer('C')">
-C. ${q.options[2]}
-</button><br><br>
+        <button class="${selected === 'C' ? 'selected-option' : ''}" onclick="selectAnswer('C')">
+            C. ${q.options[2]}
+        </button><br><br>
 
-<button class="${selected === 'D' ? 'selected-option' : ''}" onclick="selectAnswer('D')">
-D. ${q.options[3]}
-</button><br><br>
+        <button class="${selected === 'D' ? 'selected-option' : ''}" onclick="selectAnswer('D')">
+            D. ${q.options[3]}
+        </button><br><br>
 
-<button onclick="previousQuestion()">⬅ Previous</button>
+        <button onclick="previousQuestion()">⬅ Previous</button>
 
-<button onclick="nextQuestion()">Next ➡</button>
-`;
+        <button onclick="nextQuestion()">Next ➡</button>
+    `;
+}
+
+
 
     
 
