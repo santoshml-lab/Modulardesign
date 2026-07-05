@@ -354,8 +354,14 @@ D. ${q.options[3]}
 
 
 function selectAnswer(answer) {
+
     userAnswers[currentQuestion] = answer;
+
+    showQuestion();
+
 }
+    
+
 
 function nextQuestion() {
 
