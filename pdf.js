@@ -493,7 +493,55 @@ function submitQuiz() {
     ${review}
 `;
     
-}        
+}    
+
+async function generateMindMap() {
+
+    if (!pdfText) {
+        alert("Please upload a PDF first.");
+        return;
+    }
+
+    const output = document.getElementById("pdfOutput");
+
+    output.innerHTML = "🧠 Generating Mind Map...";
+
+    try {
+
+        const response = await fetch(
+            "https://student-learning-system-r6bi.onrender.com/pdf-mindmap",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    text: pdfText.substring(0, 12000)
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if (data.status !== "success") {
+
+            output.innerHTML = "❌ Failed to generate Mind Map.";
+
+            return;
+
+        }
+
+        output.innerHTML = marked.parse(data.mindmap);
+
+    } catch (err) {
+
+        output.innerHTML = "❌ Error: " + err.message;
+
+    }
+
+}
+
+window.generateMindMap = generateMindMap;
 
         
 
