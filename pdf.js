@@ -456,19 +456,49 @@ function submitQuiz() {
     });
 
     document.getElementById("pdfOutput").innerHTML = `
-        <h2>🎉 Quiz Completed</h2>
+    <h2>🎉 Quiz Completed</h2>
 
-        <h3>Your Score: ${score} / ${quizQuestions.length}</h3>
+    <h3>Your Score: ${score} / ${quizQuestions.length}</h3>
 
-        <button class="btn primary" onclick="startQuiz()">
-            🔄 Retry Quiz
-        </button>
+    <div class="action-card">
 
-        <br><br>
+        <h3>📊 AI Performance Analysis</h3>
 
-        ${review}
-    `;
-}
+        <p><b>Strong Questions:</b>
+        ${strengths.length ? strengths.join(", ") : "None"}
+        </p>
+
+        <p><b>Needs Improvement:</b>
+        ${weaknesses.length ? weaknesses.join(", ") : "None"}
+        </p>
+
+        <p><b>💡 Recommendation:</b>
+        ${
+            score >= quizQuestions.length * 0.8
+            ? "Excellent! Try another chapter."
+            : "Revise the Notes and retry the quiz."
+        }
+        </p>
+
+    </div>
+
+    <br>
+
+    <button class="btn primary" onclick="startQuiz()">
+        🔄 Retry Quiz
+    </button>
+
+    <br><br>
+
+    ${review}
+`;
+    
+}        
+
+        
+
+        
+            
 
     
 
