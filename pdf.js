@@ -543,6 +543,51 @@ async function generateMindMap() {
 
 window.generateMindMap = generateMindMap;
 
+async function generateProblems() {
+
+    if (!pdfText) {
+        alert("Please upload a PDF first.");
+        return;
+    }
+
+    const output = document.getElementById("pdfOutput");
+
+    output.innerHTML = "🧮 Solving Problems...";
+
+    try {
+
+        const response = await fetch(
+            "https://student-learning-system-r6bi.onrender.com/pdf-problems",
+            {
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify({
+                    text:pdfText.substring(0,12000)
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if(data.status!="success"){
+            output.innerHTML="❌ Failed";
+            return;
+        }
+
+        output.innerHTML = marked.parse(data.problems);
+
+    } catch(err){
+
+        output.innerHTML="❌ "+err.message;
+
+    }
+
+}
+
+window.generateProblems = generateProblems;
+
         
 
         
