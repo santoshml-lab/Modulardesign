@@ -584,3 +584,10 @@ footer{
 #pdfQuestion{
     width:100%;
 }
+
+.selected-option{
+    background:#2563eb;
+    color:white;
+    border:2px solid #1d4ed8;
+    font-weight:bold;
+}
