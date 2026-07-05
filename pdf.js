@@ -314,49 +314,67 @@ function startQuiz() {
 }
 
 function showQuestion() {
-    const progress =
-((currentQuestion + 1) / quizQuestions.length) * 100;
 
     const q = quizQuestions[currentQuestion];
     const selected = userAnswers[currentQuestion];
     const output = document.getElementById("pdfOutput");
 
-       output.innerHTML = `
-        <h2>Question ${currentQuestion + 1} / ${quizQuestions.length}</h2>
+    const progress =
+        ((currentQuestion + 1) / quizQuestions.length) * 100;
 
-        <h3>${q.question}</h3>
+    output.innerHTML = `
 
-        <button class="${selected === 'A' ? 'selected-option' : ''}" onclick="selectAnswer('A')">
-            A. ${q.options[0]}
-        </button><br><br>
+<div style="margin-bottom:20px;">
 
-        <button class="${selected === 'B' ? 'selected-option' : ''}" onclick="selectAnswer('B')">
-            B. ${q.options[1]}
-        </button><br><br>
+<div style="
+width:100%;
+height:12px;
+background:#ddd;
+border-radius:20px;
+overflow:hidden;
+">
 
-        <button class="${selected === 'C' ? 'selected-option' : ''}" onclick="selectAnswer('C')">
-            C. ${q.options[2]}
-        </button><br><br>
+<div style="
+width:${progress}%;
+height:100%;
+background:#2563eb;
+transition:.3s;
+">
+</div>
 
-        <button class="${selected === 'D' ? 'selected-option' : ''}" onclick="selectAnswer('D')">
-            D. ${q.options[3]}
-        </button><br><br>
+</div>
 
-        <button onclick="previousQuestion()">⬅ Previous</button>
+<p style="text-align:center;margin-top:8px;">
+Question ${currentQuestion + 1} of ${quizQuestions.length}
+</p>
 
-        <button onclick="nextQuestion()">Next ➡</button>
-    `;
+</div>
+
+<h3>${q.question}</h3>
+
+<button class="${selected === 'A' ? 'selected-option' : ''}" onclick="selectAnswer('A')">
+A. ${q.options[0]}
+</button><br><br>
+
+<button class="${selected === 'B' ? 'selected-option' : ''}" onclick="selectAnswer('B')">
+B. ${q.options[1]}
+</button><br><br>
+
+<button class="${selected === 'C' ? 'selected-option' : ''}" onclick="selectAnswer('C')">
+C. ${q.options[2]}
+</button><br><br>
+
+<button class="${selected === 'D' ? 'selected-option' : ''}" onclick="selectAnswer('D')">
+D. ${q.options[3]}
+</button><br><br>
+
+<button onclick="previousQuestion()">⬅ Previous</button>
+<button onclick="nextQuestion()">Next ➡</button>
+
+`;
 }
-
-
-
     
-
-    
-
         
-
-    
 
 
 
