@@ -339,6 +339,17 @@ function showQuestion() {
     `;
 
 }
+function selectAnswer(answer){
+    alert("Selected: " + answer);
+}
+
+function nextQuestion(){
+    alert("Next Question");
+}
+
+function previousQuestion(){
+    alert("Previous Question");
+}
 
 
 
