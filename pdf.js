@@ -372,6 +372,32 @@ function previousQuestion() {
 
 }
 
+function submitQuiz() {
+
+    let score = 0;
+
+    quizQuestions.forEach((q, index) => {
+
+        if (userAnswers[index] === q.answer) {
+
+            score++;
+
+        }
+
+    });
+
+    document.getElementById("pdfOutput").innerHTML = `
+        <h2>🎉 Quiz Completed</h2>
+
+        <h3>Your Score: ${score} / ${quizQuestions.length}</h3>
+
+        <button onclick="startQuiz()">
+            🔄 Retry Quiz
+        </button>
+    `;
+
+}
+
     
 
 
