@@ -339,17 +339,44 @@ function showQuestion() {
     `;
 
 }
-function selectAnswer(answer){
-    alert("Selected: " + answer);
+
+function selectAnswer(answer) {
+    userAnswers[currentQuestion] = answer;
 }
 
-function nextQuestion(){
-    alert("Next Question");
+function nextQuestion() {
+
+    if (currentQuestion < quizQuestions.length - 1) {
+
+        currentQuestion++;
+
+        showQuestion();
+
+    } else {
+
+        submitQuiz();
+
+    }
+
 }
 
-function previousQuestion(){
-    alert("Previous Question");
+function previousQuestion() {
+
+    if (currentQuestion > 0) {
+
+        currentQuestion--;
+
+        showQuestion();
+
+    }
+
 }
+
+    
+
+
+
+    
 
 
 
