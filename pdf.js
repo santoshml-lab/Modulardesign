@@ -3,6 +3,9 @@ pdfjsLib.GlobalWorkerOptions.workerSrc =
 
 // 👇 Uploaded PDF ka text yahan store hoga
 let pdfText = "";
+let quizQuestions = [];
+let currentQuestion = 0;
+let userAnswers = [];
 
 async function uploadPDF() {
 
