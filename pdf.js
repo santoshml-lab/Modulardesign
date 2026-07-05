@@ -208,4 +208,49 @@ async function generateMCQs() {
 window.generateMCQs = generateMCQs;
 
 
+async function generateNotes() {
+
+    if (!pdfText) {
+        alert("Please upload a PDF first.");
+        return;
+    }
+
+    const output = document.getElementById("pdfOutput");
+    output.innerHTML = "🤖 Generating Notes...";
+
+    try {
+
+        const response = await fetch(
+            "https://student-learning-system-r6bi.onrender.com/pdf-notes",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    text: pdfText.substring(0, 12000)
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if (data.status !== "success") {
+            output.innerHTML = "❌ Failed to generate notes.";
+            return;
+        }
+
+        output.innerHTML = marked.parse(data.notes);
+
+    } catch (err) {
+
+        output.innerHTML = "❌ Error: " + err.message;
+
+    }
+}
+
+window.generateNotes = generateNotes;
+
+
+
 
