@@ -421,6 +421,8 @@ function submitQuiz() {
     let score = 0;
 
     let review = "";
+    let strengths = [];
+    let weaknesses = [];
 
     quizQuestions.forEach((q, index) => {
 
