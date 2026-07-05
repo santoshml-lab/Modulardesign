@@ -420,14 +420,31 @@ function submitQuiz() {
 
     let score = 0;
 
+    let review = "";
+
     quizQuestions.forEach((q, index) => {
 
-        if (userAnswers[index] === q.answer) {
+        const correct = userAnswers[index] === q.answer;
 
-            score++;
+        if (correct) score++;
 
-        }
+        review += `
+        <div class="action-card">
 
+        <h3>Q${index + 1}. ${q.question}</h3>
+
+        <p>Your Answer:
+        <b>${userAnswers[index] || "Not Answered"}</b></p>
+
+        <p>Correct Answer:
+        <span style="color:green;"><b>${q.answer}</b></span></p>
+
+        <p>${correct ? "✅ Correct" : "❌ Incorrect"}</p>
+
+        <p><b>Explanation:</b> ${q.explanation}</p>
+
+        </div><br>
+        `;
     });
 
     document.getElementById("pdfOutput").innerHTML = `
@@ -435,12 +452,26 @@ function submitQuiz() {
 
         <h3>Your Score: ${score} / ${quizQuestions.length}</h3>
 
-        <button onclick="startQuiz()">
+        <button class="btn primary" onclick="startQuiz()">
             🔄 Retry Quiz
         </button>
-    `;
 
+        <br><br>
+
+        ${review}
+    `;
 }
+
+    
+
+    
+
+        
+
+    
+        
+
+        
 
     
 
