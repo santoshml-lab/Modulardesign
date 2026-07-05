@@ -251,6 +251,49 @@ async function generateNotes() {
 
 window.generateNotes = generateNotes;
 
+async function generateFlashcards() {
+
+    if (!pdfText) {
+        alert("Please upload a PDF first.");
+        return;
+    }
+
+    const output = document.getElementById("pdfOutput");
+    output.innerHTML = "🧠 Generating Flashcards...";
+
+    try {
+
+        const response = await fetch(
+            "https://student-learning-system-r6bi.onrender.com/pdf-flashcards",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    text: pdfText.substring(0, 12000)
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if (data.status !== "success") {
+            output.innerHTML = "❌ Failed to generate flashcards.";
+            return;
+        }
+
+        output.innerHTML = marked.parse(data.flashcards);
+
+    } catch (err) {
+
+        output.innerHTML = "❌ Error: " + err.message;
+
+    }
+}
+
+window.generateFlashcards = generateFlashcards;
+
 
 
 
