@@ -300,6 +300,42 @@ async function generateFlashcards() {
 }
 
 window.generateFlashcards = generateFlashcards;
+function startQuiz() {
+
+    currentQuestion = 0;
+    userAnswers = [];
+
+    showQuestion();
+
+}
+
+function showQuestion() {
+
+    const q = quizQuestions[currentQuestion];
+
+    const output = document.getElementById("pdfOutput");
+
+    output.innerHTML = `
+        <h2>Question ${currentQuestion + 1} / ${quizQuestions.length}</h2>
+
+        <h3>${q.question}</h3>
+
+        <button onclick="selectAnswer('A')">A. ${q.options[0]}</button><br><br>
+
+        <button onclick="selectAnswer('B')">B. ${q.options[1]}</button><br><br>
+
+        <button onclick="selectAnswer('C')">C. ${q.options[2]}</button><br><br>
+
+        <button onclick="selectAnswer('D')">D. ${q.options[3]}</button><br><br>
+
+        <button onclick="previousQuestion()">⬅ Previous</button>
+
+        <button onclick="nextQuestion()">Next ➡</button>
+
+    `;
+
+}
+
 
 
 
