@@ -314,6 +314,8 @@ function startQuiz() {
 }
 
 function showQuestion() {
+    const progress =
+((currentQuestion + 1) / quizQuestions.length) * 100;
 
     const q = quizQuestions[currentQuestion];
     const selected = userAnswers[currentQuestion];
