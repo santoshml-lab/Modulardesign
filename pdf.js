@@ -149,6 +149,7 @@ async function generateMCQs() {
         console.log("HTTP Status:", response.status);
 
         const data = await response.json();
+        quizQuestions = data.questions;
 
         console.log("API Response:", data);
         alert(JSON.stringify(data));
