@@ -425,8 +425,14 @@ function submitQuiz() {
     let weaknesses = [];
 
     quizQuestions.forEach((q, index) => {
+        
 
         const correct = userAnswers[index] === q.answer;
+        if (correct) {
+       strengths.push(`Q${index + 1}`);
+} else {
+    weaknesses.push(`Q${index + 1}`);
+        }
 
         if (correct) score++;
 
