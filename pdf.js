@@ -588,6 +588,51 @@ async function generateProblems() {
 
 window.generateProblems = generateProblems;
 
+async function generateFormulaSheet() {
+
+    if (!pdfText) {
+        alert("Please upload a PDF first.");
+        return;
+    }
+
+    const output = document.getElementById("pdfOutput");
+
+    output.innerHTML = "📐 Generating Formula Sheet...";
+
+    try {
+
+        const response = await fetch(
+            "https://student-learning-system-r6bi.onrender.com/pdf-formulas",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    text: pdfText.substring(0, 12000)
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if (data.status !== "success") {
+            output.innerHTML = "❌ Failed to generate Formula Sheet.";
+            return;
+        }
+
+        output.innerHTML = marked.parse(data.formulas);
+
+    } catch (err) {
+
+        output.innerHTML = "❌ Error: " + err.message;
+
+    }
+
+}
+
+window.generateFormulaSheet = generateFormulaSheet;
+
         
 
         
