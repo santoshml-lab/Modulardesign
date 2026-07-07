@@ -107,7 +107,10 @@ async function askPDF() {
 
         const data = await response.json();
 
-        output.innerHTML = marked.parse(data.reply);
+        typeWriter(
+    output,
+    marked.parse(data.reply)
+);
 
     } catch (err) {
 
