@@ -940,6 +940,8 @@ async function generateDiagram() {
         );
 
         const data = await response.json();
+        console.log(data.diagram);
+        alert(data.diagram);
 
         if (data.status !== "success") {
             output.innerHTML = "❌ Failed to generate diagram.";
