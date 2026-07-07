@@ -187,21 +187,35 @@ style="display:none;">
 
 </div>
 
+
 <div id="chatContainer" class="chat-container">
 
-<div class="ai-message">
+    <div class="ai-message">
 
-<div class="ai-avatar">🤖</div>
+        <div class="avatar">🤖</div>
 
-<div id="pdfOutput" class="chat-bubble">
+        <div class="message-box">
 
-Welcome! Upload a PDF and ask me anything.
+            <div id="pdfOutput"></div>
+
+            <div class="message-actions">
+
+                <button onclick="copyResponse()">📋 Copy</button>
+
+                <button onclick="regenerateLast()">🔄 Regenerate</button>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
-</div>
 
-</div>
+
+
+
 
 
 
