@@ -300,7 +300,10 @@ async function generateFlashcards() {
             return;
         }
 
-        output.innerHTML = marked.parse(data.flashcards);
+        typeWriter(
+    output,
+    marked.parse(data.flashcards)
+);
 
     } catch (err) {
 
