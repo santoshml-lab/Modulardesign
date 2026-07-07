@@ -591,7 +591,10 @@ async function generateProblems() {
             return;
         }
 
-        output.innerHTML = marked.parse(data.problems);
+        typeWriter(
+    output,
+    marked.parse(data.problems)
+);
 
     } catch(err){
 
@@ -636,7 +639,10 @@ async function generateFormulaSheet() {
             return;
         }
 
-        output.innerHTML = marked.parse(data.formulas);
+        typeWriter(
+    output,
+    marked.parse(data.formulas)
+);
 
     } catch (err) {
 
@@ -681,7 +687,10 @@ async function generateDefinitions() {
             return;
         }
 
-        output.innerHTML = marked.parse(data.definitions);
+        typeWriter(
+    output,
+    marked.parse(data.definitions)
+);
 
     } catch (err) {
 
@@ -726,7 +735,10 @@ async function generateImportantQuestions() {
             return;
         }
 
-        output.innerHTML = marked.parse(data.questions);
+        typeWriter(
+    output,
+    marked.parse(data.questions)
+);
 
     } catch (err) {
 
@@ -823,7 +835,10 @@ async function generateStudyPlan() {
             return;
         }
 
-        output.innerHTML = marked.parse(data.study_plan);
+        typeWriter(
+    output,
+    marked.parse(data.study_plan)
+);
 
     } catch (err) {
 
@@ -867,7 +882,10 @@ async function generateDifficultyAnalysis() {
             return;
         }
 
-        output.innerHTML = marked.parse(data.analysis);
+        typeWriter(
+    output,
+    marked.parse(data.analysis)
+);
 
     } catch (err) {
 
@@ -911,7 +929,10 @@ async function generateRevisionPlan() {
             return;
         }
 
-        output.innerHTML = marked.parse(data.revision);
+        typeWriter(
+    output,
+    marked.parse(data.revision)
+);
 
     } catch (err) {
 
