@@ -914,6 +914,55 @@ async function generateRevisionPlan() {
 
 window.generateRevisionPlan = generateRevisionPlan;
 
+async function generateDiagram() {
+
+    if (!pdfText) {
+        alert("Please upload a PDF first.");
+        return;
+    }
+
+    const output = document.getElementById("pdfOutput");
+    output.innerHTML = "📊 Generating Diagram...";
+
+    try {
+
+        const response = await fetch(
+            "https://student-learning-system-r6bi.onrender.com/pdf-diagram",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    text: pdfText.substring(0, 12000)
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if (data.status !== "success") {
+            output.innerHTML = "❌ Failed to generate diagram.";
+            return;
+        }
+
+        output.innerHTML = `
+            <pre class="mermaid">
+${data.diagram}
+            </pre>
+        `;
+
+        mermaid.init(undefined, document.querySelectorAll(".mermaid"));
+
+    } catch (err) {
+
+        output.innerHTML = "❌ Error: " + err.message;
+
+    }
+
+}
+
+window.generateDiagram = generateDiagram;
     
 
     
