@@ -1001,6 +1001,22 @@ ${data.diagram.trim()}
 
 window.generateDiagram = generateDiagram;
 
+function copyResponse(){
+
+    const text=document.getElementById("pdfOutput").innerText;
+
+    navigator.clipboard.writeText(text);
+
+    alert("✅ Copied!");
+
+}
+
+function regenerateLast(){
+
+    alert("Coming Soon 🚀");
+
+}
+
     
     
 
