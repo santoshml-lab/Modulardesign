@@ -531,7 +531,13 @@ async function generateMindMap() {
 
         }
 
-        output.innerHTML = marked.parse(data.mindmap);
+        output.innerHTML = `
+       <div class="mermaid">
+       ${data.mindmap}
+       </div>
+`;
+
+await mermaid.run();
 
     } catch (err) {
 
