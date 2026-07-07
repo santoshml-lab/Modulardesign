@@ -254,7 +254,10 @@ async function generateNotes() {
             return;
         }
 
-        output.innerHTML = marked.parse(data.notes);
+        typeWriter(
+    output,
+    marked.parse(data.notes)
+);
 
     } catch (err) {
 
