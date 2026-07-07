@@ -870,6 +870,50 @@ async function generateDifficultyAnalysis() {
 
 window.generateDifficultyAnalysis = generateDifficultyAnalysis;
 
+async function generateRevisionPlan() {
+
+    if (!pdfText) {
+        alert("Please upload a PDF first.");
+        return;
+    }
+
+    const output = document.getElementById("pdfOutput");
+    output.innerHTML = "🔄 Creating Revision Plan...";
+
+    try {
+
+        const response = await fetch(
+            "https://student-learning-system-r6bi.onrender.com/pdf-revision-plan",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    text: pdfText.substring(0, 12000)
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if (data.status !== "success") {
+            output.innerHTML = "❌ Failed to generate revision plan.";
+            return;
+        }
+
+        output.innerHTML = marked.parse(data.revision);
+
+    } catch (err) {
+
+        output.innerHTML = "❌ Error: " + err.message;
+
+    }
+
+}
+
+window.generateRevisionPlan = generateRevisionPlan;
+
     
 
     
