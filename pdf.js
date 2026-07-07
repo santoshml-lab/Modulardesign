@@ -826,6 +826,50 @@ async function generateStudyPlan() {
 
 window.generateStudyPlan = generateStudyPlan;
 
+async function generateDifficultyAnalysis() {
+
+    if (!pdfText) {
+        alert("Please upload a PDF first.");
+        return;
+    }
+
+    const output = document.getElementById("pdfOutput");
+    output.innerHTML = "📊 Analyzing Chapter Difficulty...";
+
+    try {
+
+        const response = await fetch(
+            "https://student-learning-system-r6bi.onrender.com/pdf-difficulty",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    text: pdfText.substring(0, 12000)
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if (data.status !== "success") {
+            output.innerHTML = "❌ Failed to analyze difficulty.";
+            return;
+        }
+
+        output.innerHTML = marked.parse(data.analysis);
+
+    } catch (err) {
+
+        output.innerHTML = "❌ Error: " + err.message;
+
+    }
+
+}
+
+window.generateDifficultyAnalysis = generateDifficultyAnalysis;
+
     
 
     
