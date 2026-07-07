@@ -940,24 +940,29 @@ async function generateDiagram() {
         );
 
         const data = await response.json();
-        console.log(data.diagram);
-        alert(data.diagram);
 
         if (data.status !== "success") {
             output.innerHTML = "❌ Failed to generate diagram.";
             return;
         }
 
+        // Mermaid Diagram Render
         output.innerHTML = `
-            <pre class="mermaid">
-${data.diagram}
-            </pre>
+            <div id="diagramContainer">
+                <div class="mermaid">
+${data.diagram.trim()}
+                </div>
+            </div>
         `;
 
-        mermaid.init(undefined, document.querySelectorAll(".mermaid"));
+        // Render Mermaid
+        await mermaid.run({
+            querySelector: "#diagramContainer .mermaid"
+        });
 
     } catch (err) {
 
+        console.error(err);
         output.innerHTML = "❌ Error: " + err.message;
 
     }
@@ -965,6 +970,8 @@ ${data.diagram}
 }
 
 window.generateDiagram = generateDiagram;
+
+    
     
 
     
