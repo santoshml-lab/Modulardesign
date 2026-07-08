@@ -638,7 +638,36 @@ font-size:20px !important;
 font-weight:600;
 }
 
-Sir isme kaha update kara
+.dashboard{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+padding:40px 8%;
+}
+
+.dashboard-card{
+background:#111827;
+border:1px solid rgba(255,255,255,.06);
+border-radius:22px;
+padding:28px;
+transition:.3s;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+.dashboard-card:hover{
+transform:translateY(-8px);
+border-color:#4da3ff;
+}
+
+.dashboard-card h3{
+color:#94a3b8;
+margin-bottom:12px;
+font-size:15px;
+}
+
+.dashboard-card h2{
+font-size:30px;
+}
 
     
 
