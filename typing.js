@@ -20,3 +20,5 @@ function typeWriter(element, html, speed = 10) {
 
     type();
 }
+
+window.typeWriter = typeWriter;
