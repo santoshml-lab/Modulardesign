@@ -685,6 +685,18 @@ background:linear-gradient(90deg,#4da3ff,#2563eb);
 transition:.5s;
 }
 
+#pdfOutput{
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    width:100%;
+    font-size:16px;
+    line-height:1.8;
+}
+
+.message-box{
+    overflow-x:hidden;
+}
     
 
 
