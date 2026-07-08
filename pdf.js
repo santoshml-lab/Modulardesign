@@ -54,10 +54,20 @@ async function uploadPDF() {
 
     loading.style.display = "none";
 
-    output.innerHTML =
-        "<pre>" + text.substring(0, 5000) + "</pre>";
-
-    console.log(text);
+    output.innerHTML = `
+<div class="lesson-output">
+<pre style="
+white-space:pre-wrap;
+word-break:break-word;
+font-size:16px;
+max-width:100%;
+overflow:auto;
+">
+${text.substring(0,5000)}
+</pre>
+</div>`;
+        
+console.log(text);
 
 }
 
