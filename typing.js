@@ -1,4 +1,4 @@
-function typeWriter(element, text, speed = 12) {
+function typeWriter(element, html, speed = 10) {
 
     element.innerHTML = "";
 
@@ -6,18 +6,16 @@ function typeWriter(element, text, speed = 12) {
 
     function type() {
 
-        if (i < text.length) {
+        if (i < html.length) {
 
-            element.innerHTML += text.charAt(i);
-
-            // Markdown / HTML render hone do
-            element.style.whiteSpace = "pre-wrap";
-            element.style.wordBreak = "break-word";
-            element.style.overflowWrap = "break-word";
+            element.innerHTML = html.substring(0, i);
 
             i++;
+
             setTimeout(type, speed);
+
         }
+
     }
 
     type();
