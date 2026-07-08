@@ -28,3 +28,29 @@ document.getElementById("aiMessage").innerHTML =
 aiTips[random];
 
 }
+
+let progress = Number(localStorage.getItem("progress")) || 20;
+
+updateProgress();
+
+function increaseProgress(){
+
+if(progress < 100){
+progress += 10;
+}
+
+localStorage.setItem("progress",progress);
+
+updateProgress();
+
+}
+
+function updateProgress(){
+
+document.getElementById("progressFill").style.width =
+progress + "%";
+
+document.getElementById("progressText").innerHTML =
+progress + "% Completed";
+
+}
