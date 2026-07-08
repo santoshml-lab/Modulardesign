@@ -1,23 +1,24 @@
-function typeWriter(element,text,speed=12){
+function typeWriter(element, text, speed = 12) {
 
-element.innerHTML="";
+    element.innerHTML = "";
 
-let i=0;
+    let i = 0;
 
-function type(){
+    function type() {
 
-if(i<text.length){
+        if (i < text.length) {
 
-element.innerHTML+=text.charAt(i);
+            element.innerHTML += text.charAt(i);
 
-i++;
+            // Markdown / HTML render hone do
+            element.style.whiteSpace = "pre-wrap";
+            element.style.wordBreak = "break-word";
+            element.style.overflowWrap = "break-word";
 
-setTimeout(type,speed);
+            i++;
+            setTimeout(type, speed);
+        }
+    }
 
-}
-
-}
-
-type();
-
+    type();
 }
