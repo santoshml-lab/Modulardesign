@@ -1,0 +1,176 @@
+/* ==========================
+   EXAMPANIC LOGIN PART 2
+========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+
+background:#070b14;
+
+min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+overflow:hidden;
+
+color:white;
+
+position:relative;
+
+}
+
+/* Animated Background */
+
+.bg1{
+
+position:absolute;
+
+width:600px;
+
+height:600px;
+
+background:#2563eb33;
+
+border-radius:50%;
+
+filter:blur(180px);
+
+top:-220px;
+
+left:-180px;
+
+animation:move1 10s infinite alternate;
+
+}
+
+.bg2{
+
+position:absolute;
+
+width:500px;
+
+height:500px;
+
+background:#00d4ff22;
+
+border-radius:50%;
+
+filter:blur(180px);
+
+bottom:-200px;
+
+right:-150px;
+
+animation:move2 12s infinite alternate;
+
+}
+
+@keyframes move1{
+
+0%{
+transform:translate(0,0);
+}
+
+100%{
+transform:translate(120px,80px);
+}
+
+}
+
+@keyframes move2{
+
+0%{
+transform:translate(0,0);
+}
+
+100%{
+transform:translate(-120px,-80px);
+}
+
+}
+
+/* Main Card */
+
+.login-container{
+
+width:420px;
+
+padding:40px;
+
+background:rgba(17,24,39,.82);
+
+backdrop-filter:blur(25px);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:28px;
+
+box-shadow:0 20px 60px rgba(0,0,0,.45);
+
+text-align:center;
+
+z-index:10;
+
+}
+
+/* Logo */
+
+.logo{
+
+font-size:34px;
+
+font-weight:800;
+
+margin-bottom:15px;
+
+}
+
+.logo span{
+
+color:#4f8cff;
+
+}
+
+/* Heading */
+
+.login-container h1{
+
+font-size:34px;
+
+margin-bottom:10px;
+
+}
+
+.login-container p{
+
+color:#94a3b8;
+
+margin-bottom:30px;
+
+line-height:1.6;
+
+}
+
+/* Login Box */
+
+.login-box{
+
+display:flex;
+
+flex-direction:column;
+
+gap:18px;
+
+}
