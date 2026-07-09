@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -14,77 +16,342 @@
 
 <body>
 
-<div id="particles"></div>
+<!-- Background -->
+<div class="bg-glow"></div>
+<div class="bg-glow2"></div>
+
+<!-- Header -->
 
 <header class="header">
 
 <div class="logo">
+
 🚀 Exam<span>Panic</span>
+
 </div>
 
 <div class="search">
-<input type="text" placeholder="Search anything...">
+
+<input
+type="text"
+placeholder="Search School, IIT, NEET...">
+
+</div>
+
+<div class="header-right">
+
+<div class="notification">
+🔔
 </div>
 
 <div class="profile">
 👤
 </div>
 
+</div>
+
 </header>
+
+<!-- Hero -->
 
 <section class="hero">
 
-<h1>Welcome Back 👋</h1>
+<div class="hero-content">
 
-<p>One Platform for School • IIT • NEET</p>
+<h1 id="greeting">
 
-<button class="startBtn">
+Welcome Back 👋
+
+</h1>
+
+<p>
+
+One Platform for
+School • IIT • NEET
+
+</p>
+
+<p id="aiTip">
+
+🤖 AI Tip :
+Upload your notes and let AI teach you smarter.
+
+</p>
+
+<button
+class="startBtn"
+onclick="continueLearning()">
+
 Continue Learning →
+
 </button>
 
+</div>
+
 </section>
+
+<!-- Continue Learning -->
+
+<section class="continue-learning">
+
+<div class="continue-card">
+
+<div>
+
+<h2>
+
+📘 Continue Learning
+
+</h2>
+
+<p>
+
+Biology • Human Digestive System
+
+</p>
+
+</div>
+
+<button
+class="resumeBtn">
+
+Resume →
+
+</button>
+
+</div>
+
+</section>
+
+<!-- Platform Cards Start -->
 
 <section class="platforms">
-
-<!-- School -->
+<!-- 📚 School Learning -->
 <div class="platform-card" onclick="location.href='school.html'">
 
-<h2>📚 School Learning</h2>
+<div class="card-icon">📚</div>
 
-<p>Class 1–10 Complete AI Learning</p>
+<h2>School Learning</h2>
+
+<p>
+Complete AI learning for Class 1–10.
+Notes, MCQs, PDF AI, Quiz & Revision.
+</p>
+
+<div class="card-footer">
+<span>Explore →</span>
+</div>
 
 </div>
 
-<!-- IIT -->
+<!-- 🧠 IIT Learning -->
 <div class="platform-card" onclick="location.href='iit.html'">
 
-<h2>🧠 IIT Learning</h2>
+<div class="card-icon">🧠</div>
 
-<p>JEE Main & Advanced</p>
+<h2>IIT Learning</h2>
+
+<p>
+Master JEE Main & Advanced with AI Teacher,
+Question Solver and Mock Tests.
+</p>
+
+<div class="card-footer">
+<span>Explore →</span>
+</div>
 
 </div>
 
-<!-- NEET -->
+<!-- 🩺 NEET Learning -->
 <div class="platform-card" onclick="location.href='neet.html'">
 
-<h2>🩺 NEET Learning</h2>
+<div class="card-icon">🩺</div>
 
-<p>Medical Entrance Preparation</p>
+<h2>NEET Learning</h2>
+
+<p>
+Biology, Physics & Chemistry with AI Notes,
+Practice Questions and Mock Tests.
+</p>
+
+<div class="card-footer">
+<span>Explore →</span>
+</div>
 
 </div>
 
-<!-- AI -->
-<div class="platform-card">
+<!-- 🤖 AI Study Companion -->
+<div class="platform-card" onclick="location.href='pdf.html'">
 
-<h2>🤖 AI Study Companion</h2>
+<div class="card-icon">🤖</div>
 
-<p>24×7 AI Teacher</p>
+<h2>AI Study Companion</h2>
+
+<p>
+Ask doubts, upload PDFs, generate notes,
+flashcards, quizzes and study plans.
+</p>
+
+<div class="card-footer">
+<span>Open AI →</span>
+</div>
 
 </div>
 
 </section>
+
+<!-- ⚡ Quick Tools -->
+<section class="quick-tools">
+
+<h2 class="section-title">⚡ Quick Tools</h2>
+
+<div class="tools-grid">
+
+<div class="tool-card" onclick="location.href='pdf.html'">
+📄
+<h3>PDF AI</h3>
+</div>
+
+<div class="tool-card">
+📝
+<h3>Notes</h3>
+</div>
+
+<div class="tool-card">
+🎯
+<h3>Quiz</h3>
+</div>
+
+<div class="tool-card">
+📅
+<h3>Planner</h3>
+</div>
+
+<div class="tool-card">
+💬
+<h3>AI Chat</h3>
+</div>
+
+<div class="tool-card">
+🏆
+<h3>Leaderboard</h3>
+</div>
+
+</div>
+
+</section>
+
+ <!-- ===========================
+     AI STUDY TIPS
+=========================== -->
+
+<section class="ai-tips">
+
+<div class="tip-box">
+
+<h2>🤖 AI Study Tips</h2>
+
+<p id="aiTip">
+Revise Biology for 30 minutes and solve 20 MCQs today.
+</p>
+
+</div>
+
+</section>
+
+<!-- ===========================
+     RECENT ACTIVITY
+=========================== -->
+
+<section class="goals">
+
+<h2 class="section-title">📜 Recent Activity</h2>
+
+<div class="goals-box">
+
+<div class="goal">
+<span>📄</span>
+<p>PDF Notes Generated Successfully</p>
+</div>
+
+<div class="goal">
+<span>📝</span>
+<p>Completed Biology Chapter</p>
+</div>
+
+<div class="goal">
+<span>🎯</span>
+<p>Scored 18/20 in AI Quiz</p>
+</div>
+
+<div class="goal">
+<span>🏆</span>
+<p>Earned +100 XP</p>
+</div>
+
+<div class="goal">
+<span>🔥</span>
+<p>15-Day Study Streak Maintained</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+     UPCOMING TASKS
+=========================== -->
+
+<section class="goals">
+
+<h2 class="section-title">📅 Upcoming Tasks</h2>
+
+<div class="goals-box">
+
+<div class="goal">
+<span>📚</span>
+<p>Complete Physics Chapter</p>
+</div>
+
+<div class="goal">
+<span>🧪</span>
+<p>Revise Chemistry Formula Sheet</p>
+</div>
+
+<div class="goal">
+<span>🧠</span>
+<p>Take AI Mock Test</p>
+</div>
+
+<div class="goal">
+<span>📄</span>
+<p>Upload New PDF Notes</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+     FOOTER
+=========================== -->
+
+<footer>
+
+<h2>🚀 ExamPanic AI</h2>
+
+<p>
+One Platform for School • IIT • NEET Learning
+</p>
+
+<p>
+Made with ❤️ by Santosh
+</p>
+
+</footer>
 
 <script src="dashboard.js"></script>
 
 </body>
-</html>
+</html> 
+  
