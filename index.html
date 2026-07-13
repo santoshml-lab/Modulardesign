@@ -1,18 +1,20 @@
- 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ExamPanic AI Dashboard</title>
+<title>ExamPanic AI</title>
 
 <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- 🚀 PWA MANIFEST -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0b0f17">
+
+<meta name="theme-color" content="#0B1220">
 
 </head>
 
@@ -21,238 +23,450 @@
 <div class="glow"></div>
 <div class="glow2"></div>
 
-<div class="topbar">
-<div class="logo">🚀 Exam<span>Panic</span></div>
-<div class="tag">Apple SaaS AI System</div>
+<!-- ===========================
+SIDEBAR
+=========================== -->
+
+<div class="sidebar">
+
+<div class="brand">
+
+<h2>🚀 Exam<span>Panic</span></h2>
+
+<p>AI Learning Platform</p>
+
 </div>
 
-<!-- 🚀 INSTALL BUTTON ADDED -->
-<div style="text-align:center; margin-top:20px;">
-<button id="installBtn" class="btn">📲 Install App</button>
+<ul>
+
+<li class="active">🏠 Dashboard</li>
+
+<li onclick="location.href='school.html'">
+📘 School Learning
+</li>
+
+<li onclick="openLink('https://learnlession.santoshkrsbg36.workers.dev/')">
+🤖 AI Teacher
+</li>
+
+<li onclick="openLink('https://chatstudent.santoshkrsbg36.workers.dev/')">
+💬 AI Chat
+</li>
+
+<li onclick="openLink('https://studentnotes.santoshkrsbg36.workers.dev/')">
+📝 Notes
+</li>
+
+<li onclick="location.href='pdf.html'">
+📄 PDF AI
+</li>
+
+<li onclick="openLink('https://shrill-grass-28d6.santoshkrsbg36.workers.dev/')">
+🧠 Mock Tests
+</li>
+
+<li>
+📊 Analytics
+</li>
+
+<li>
+⚙ Settings
+</li>
+
+</ul>
+
 </div>
 
-<div class="hero">
-<h1>One AI Platform for Every Student 🚀</h1>
+<!-- ===========================
+MAIN CONTENT
+=========================== -->
+
+<div class="main">
+
+<!-- Topbar -->
+
+<header class="topbar">
+
+<div>
+
+<h2>Welcome Back 👋</h2>
+
+<p>Ready to continue your learning journey?</p>
+
+</div>
+
+<div>
+
+<button id="installBtn" class="btn">
+
+📲 Install App
+
+</button>
+
+</div>
+
+</header>
+
+<!-- Hero -->
+
+<section class="hero">
+
+<div class="hero-left">
+
+<h1>
+
+One AI Platform
+
+for Every Student 🚀
+
+</h1>
 
 <p>
-School • IIT-JEE • NEET • PDF AI
+
+Study smarter with AI.
+
+School • IIT • NEET • PDF AI • Mock Tests
+
 </p>
+
+<div class="hero-buttons">
+
+<button class="btn">
+
+🚀 Start Learning
+
+</button>
+
+<button class="btn secondary">
+
+📘 Explore Features
+
+</button>
+
 </div>
 
- <section class="dashboard">
+</div>
+
+<div class="hero-right">
+
+<div class="hero-card">
+
+<h3>🔥 Today's Goal</h3>
+
+<h2>3 Chapters</h2>
+
+<p>Stay consistent and keep your streak alive.</p>
+
+</div>
+
+</div>
+
+</section>
+
+ <!-- ===========================
+DASHBOARD CARDS
+=========================== -->
+
+<section class="dashboard">
 
 <div class="dashboard-card">
-<h3>👋 Welcome Back</h3>
+<h3>👋 Welcome</h3>
 <h2>Santosh</h2>
-<p>Ready to learn today?</p>
+<p>Let's make today productive.</p>
 </div>
 
 <div class="dashboard-card">
 <h3>🔥 Daily Streak</h3>
 <h2>5 Days</h2>
+<p>Keep learning every day.</p>
 </div>
 
 <div class="dashboard-card">
 <h3>⭐ XP Points</h3>
 <h2>1280 XP</h2>
+<p>You're doing amazing.</p>
 </div>
 
 <div class="dashboard-card">
-<h3>🏆 Level</h3>
+<h3>🏆 Current Level</h3>
 <h2>Level 8</h2>
+<p>Next level at 1500 XP.</p>
 </div>
 
- </section>
+</section>
 
- <section class="continue">
+<!-- ===========================
+LEARNING PROGRESS
+=========================== -->
 
-<h3>🤖 AI Study Companion</h3>
-
-<p id="aiMessage">
-Good Afternoon, Santosh! 👋
-Today your focus should be Biology, Algebra and Physics Numericals.
-Keep your study streak alive! 🔥
-</p>
-
-<button class="btn" onclick="nextTip()">
-✨ Get AI Suggestion
-</button>
-
- </section>
-
- <section class="continue">
+<section class="continue">
 
 <h3>📈 Your Learning Progress</h3>
 
 <p>Overall Progress</p>
 
 <div class="progress-bar">
+
 <div id="progressFill" class="progress-fill"></div>
+
 </div>
 
-<p id="progressText">20% Completed</p>
+<p id="progressText">
 
-<button class="btn" onclick="increaseProgress()">
-✅ Mark Today's Study Complete
-</button>
+20% Completed
 
- </section>
- <section class="continue">
-
-<h3>🤖 AI Recommendation</h3>
-
-<p>
-Today's personalized study plan based on your progress.
 </p>
 
-<ul style="margin-top:20px;line-height:2;">
+<button class="btn" onclick="increaseProgress()">
+
+✅ Mark Today's Study Complete
+
+</button>
+
+</section>
+
+<!-- ===========================
+AI STUDY COMPANION
+=========================== -->
+
+<section class="continue">
+
+<h3>🤖 AI Study Companion</h3>
+
+<p id="aiMessage">
+
+Good Afternoon, Santosh 👋
+
+Today's focus should be:
+
+• Biology
+
+• Algebra
+
+• Physics Numericals
+
+Stay consistent 🔥
+
+</p>
+
+<button class="btn" onclick="nextTip()">
+
+✨ Get AI Suggestion
+
+</button>
+
+</section>
+
+<!-- ===========================
+TODAY'S PLAN
+=========================== -->
+
+<section class="continue">
+
+<h3>📅 Today's Smart Plan</h3>
+
+<ul>
+
 <li>📘 Revise Biology - Photosynthesis</li>
+
 <li>🧮 Practice Algebra (15 Questions)</li>
+
 <li>⚛ Solve Physics Numericals</li>
-<li>📝 Attempt 1 Mock Test</li>
+
+<li>📝 Attempt One Mock Test</li>
+
+<li>🎯 Review Mistakes</li>
+
 </ul>
 
 <button class="btn">
-Start Today's Plan →
+
+🚀 Start Study Session
+
 </button>
 
- </section>
+</section>
 
+<!-- ===========================
+QUICK STATS
+=========================== -->
 
-
-<div class="stats">
+<section class="stats">
 
 <div class="stat">
-<h2>🔥 5 Days</h2>
-<p>Streak</p>
+
+<h2>📚 32</h2>
+
+<p>Lessons Completed</p>
+
 </div>
 
 <div class="stat">
+
 <h2>🧠 86</h2>
+
 <p>MCQs Solved</p>
+
 </div>
 
 <div class="stat">
+
 <h2>🎯 82%</h2>
+
 <p>Accuracy</p>
-</div>
 
 </div>
 
-<div class="continue">
-<h3>📘 Continue Learning</h3>
-<p>Photosynthesis - Biology</p>
-<button>Resume →</button>
-</div>
- <div class="grid">
+<div class="stat">
 
-<div class="card" onclick="window.location.href='school.html'">
+<h2>⏱ 41 hrs</h2>
+
+<p>Total Study Time</p>
+
+</div>
+
+</section>
+
+ <!-- ===========================
+AI FEATURES
+=========================== -->
+
+<section class="grid">
+
+<div class="card" onclick="location.href='school.html'">
 <h3>📘 School Learning</h3>
-<p>Class 1–12 | CBSE | ICSE | State Boards</p>
+<p>Complete learning platform for Class 1–12 students.</p>
 <div class="badge">Open</div>
 </div>
-
-
-
-
-
-
-
- </div>
-
-<div class="grid">
 
 <div class="card" onclick="openLink('https://learnlession.santoshkrsbg36.workers.dev/')">
-<h3>📘 Learn AI Teacher</h3>
-<p>Concept explanation like real teacher</p>
-<div class="badge">Open</div>
-</div>
-
-<div class="card" onclick="openLink('https://studentnotes.santoshkrsbg36.workers.dev/')">
-<h3>📝 Notes Generator</h3>
-<p>Instant ICSE revision notes</p>
-<div class="badge">Generate</div>
+<h3>🤖 AI Teacher</h3>
+<p>Learn every concept with your personal AI teacher.</p>
+<div class="badge">Learn</div>
 </div>
 
 <div class="card" onclick="openLink('https://chatstudent.santoshkrsbg36.workers.dev/')">
 <h3>💬 AI Chat Tutor</h3>
-<p>Ask doubts anytime</p>
+<p>Ask doubts instantly and get accurate answers.</p>
 <div class="badge">Chat</div>
 </div>
 
+<div class="card" onclick="openLink('https://studentnotes.santoshkrsbg36.workers.dev/')">
+<h3>📝 Smart Notes</h3>
+<p>Create beautiful AI revision notes in seconds.</p>
+<div class="badge">Generate</div>
+</div>
+
+<div class="card" onclick="location.href='pdf.html'">
+<h3>📄 PDF AI</h3>
+<p>Upload PDFs and generate summaries, notes & MCQs.</p>
+<div class="badge">Open</div>
+</div>
+
 <div class="card" onclick="openLink('https://shrill-grass-28d6.santoshkrsbg36.workers.dev/')">
-<h3>🧠 MCQ Engine</h3>
-<p>Auto test system</p>
-<div class="badge">Test</div>
+<h3>🧠 Mock Tests</h3>
+<p>Practice unlimited AI-powered mock tests.</p>
+<div class="badge">Start</div>
 </div>
 
 <div class="card" onclick="openLink('https://studentscoreprediction.santoshkrsbg36.workers.dev/')">
 <h3>🎯 ML Prediction</h3>
-<p>Predict exam score using AI</p>
+<p>Predict your exam score using Machine Learning.</p>
 <div class="badge">Predict</div>
 </div>
 
 <div class="card" onclick="openLink('https://stydentnumericalproblem.santoshkrsbg36.workers.dev/')">
 <h3>📊 Numerical Solver</h3>
-<p>Step-by-step solution AI</p>
+<p>Step-by-step AI solutions for numericals.</p>
 <div class="badge">Solve</div>
 </div>
 
 <div class="card" onclick="openLink('https://spontaneous-froyo-5ff131.netlify.app/')">
-<h3>🧠 Weakness Analyzer</h3>
-<p>Find weak topics + improve plan</p>
+<h3>📈 Weakness Analyzer</h3>
+<p>Identify weak topics and improve your performance.</p>
 <div class="badge">Analyze</div>
 </div>
- <div class="card" onclick="window.location.href='pdf.html'">
-  <h3>📄 PDF AI</h3>
-  <p>Upload PDF and generate AI Summary, Notes & MCQs</p>
-  <div class="badge">Open</div>
- </div> 
 
-</div>
+</section>
+
+<!-- ===========================
+FOOTER
+=========================== -->
 
 <footer>
-Made with ❤️ • ExamPanic AI SaaS EdTech
+
+<h3>🚀 ExamPanic AI</h3>
+
+<p>
+
+One AI Platform for Every Student
+
+</p>
+
+<p>
+
+Made with ❤️ by Santosh
+
+</p>
+
 </footer>
+
+</div>
+<!-- END MAIN -->
 
 <script src="app.js"></script>
 
-<!-- 🚀 PWA + INSTALL LOGIC -->
 <script>
+
+function openLink(url){
+
+window.open(url,"_blank");
+
+}
+
+// PWA Install
+
 let deferredPrompt;
 
-// 🔥 correct time pe capture
-window.addEventListener("beforeinstallprompt", (e) => {
+window.addEventListener("beforeinstallprompt",(e)=>{
+
 e.preventDefault();
-deferredPrompt = e;
-console.log("PWA install ready");
+
+deferredPrompt=e;
+
 });
 
-// 📲 button click install
-document.addEventListener("DOMContentLoaded", () => {
-const btn = document.getElementById("installBtn");
+document.getElementById("installBtn").onclick=async()=>{
 
-btn.addEventListener("click", async () => {
-if (!deferredPrompt) {
-alert("Open in Chrome browser to install 📱");
+if(!deferredPrompt){
+
+alert("Install is available in supported browsers.");
+
 return;
+
 }
 
 deferredPrompt.prompt();
 
-const choice = await deferredPrompt.userChoice;
-deferredPrompt = null;
-});
-});
+await deferredPrompt.userChoice;
 
-// 🔧 service worker (safe)
-if ("serviceWorker" in navigator) {
-window.addEventListener("load", () => {
+deferredPrompt=null;
+
+};
+
+// Service Worker
+
+if("serviceWorker" in navigator){
+
+window.addEventListener("load",()=>{
+
 navigator.serviceWorker.register("./service-worker.js");
-});
-}
-</script>
 
+});
+
+}
+
+</script>
 
 </body>
 </html>
